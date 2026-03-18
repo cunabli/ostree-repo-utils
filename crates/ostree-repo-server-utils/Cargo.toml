@@ -1,0 +1,18 @@
+[package]
+name = "ostree-repo-server-utils"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.92"
+license = "MIT"
+
+[[bin]]
+name = "ostree-repo-server"
+path = "src/main.rs"
+
+[dependencies]
+ostree-repo-utils-common = { path = "../ostree-repo-utils-common", features = ["kms"] }
+clap = { version = "4", features = ["derive"] }
+tokio = { version = "1", features = ["full"] }
+aws-sdk-kms = "1"
+aws-config = "1"
+anyhow = "1"
