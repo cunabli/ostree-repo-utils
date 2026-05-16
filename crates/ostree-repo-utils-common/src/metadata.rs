@@ -20,7 +20,10 @@
 //! flag). This module only performs the raw read/write.
 
 use anyhow::Context as _;
-use ostree::glib::{self, prelude::ToVariant};
+use ostree::{
+    gio,
+    glib::{self, prelude::ToVariant},
+};
 
 /// GLib detached metadata key for ED25519 signatures, as used by `ostree sign`.
 const SIGN_ED25519_KEY: &str = "ostree.sign.ed25519";

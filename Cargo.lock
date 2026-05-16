@@ -1439,7 +1439,6 @@ dependencies = [
  "aws-config",
  "aws-sdk-kms",
  "base64 0.22.1",
- "gio",
  "ostree",
 ]
 
