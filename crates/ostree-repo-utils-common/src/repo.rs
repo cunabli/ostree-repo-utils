@@ -4,6 +4,7 @@
 //! Call them from inside `tokio::task::spawn_blocking` when used from an async context.
 
 use anyhow::Context as _;
+use ostree::gio;
 use std::path::Path;
 
 /// Open an OSTree repository at `path`.
