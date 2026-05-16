@@ -17,12 +17,27 @@ The client binary carries **zero AWS SDK dependencies**. The server binary is th
 
 ## Prerequisites
 
+### Build
+
 - **Rust 1.92+** — the minimum supported Rust version (MSRV).
-- **libostree** ≥ 2024.05 and its development headers (`ostree-1.pc` must be discoverable by `pkg-config`).
+- **libostree ≥ 2024.05** development headers (`ostree-1.pc` must be discoverable by `pkg-config`).
   - Fedora/RHEL: `dnf install ostree-devel`
   - Debian/Ubuntu: `apt install libostree-dev`
   - Yocto: included when building with the `ostree` recipe.
+- **GLib 2.0** development headers (`glib-2.0.pc` must be discoverable by `pkg-config`). On most distros this is a transitive dependency of the ostree package above, but must be present explicitly.
+  - Fedora/RHEL: `dnf install glib2-devel`
+  - Debian/Ubuntu: `apt install libglib2.0-dev`
+  - Yocto: included when building with the `glib-2.0` recipe.
 - **AWS credentials** (for the server binary only) — any credential source supported by the AWS SDK works: environment variables, instance role, `~/.aws/credentials`, etc.
+
+### Runtime
+
+Both binaries link dynamically against `libostree-1`, `libglib-2.0`, and `libgio-2.0`. On systems where the binary is deployed without a full build toolchain (e.g. a Yocto image), the runtime packages must be present:
+
+| | Fedora/RHEL | Debian/Ubuntu | Yocto recipe |
+|---|---|---|---|
+| ostree | `ostree-libs` | `libostree1` | `ostree` |
+| glib / gio | `glib2` | `libglib2.0-0` | `glib-2.0` |
 
 ## Installation
 

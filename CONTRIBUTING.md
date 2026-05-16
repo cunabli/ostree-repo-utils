@@ -75,6 +75,9 @@ This keeps the client binary free of any AWS transitive dependency. When adding 
 - **libostree** development headers — `ostree-1.pc` must be on `PKG_CONFIG_PATH`.
   - Fedora/RHEL: `dnf install ostree-devel`
   - Debian/Ubuntu: `apt install libostree-dev`
+- **GLib 2.0** development headers — `glib-2.0.pc` must be on `PKG_CONFIG_PATH`. Usually a transitive dependency of the ostree package above, but must be present explicitly.
+  - Fedora/RHEL: `dnf install glib2-devel`
+  - Debian/Ubuntu: `apt install libglib2.0-dev`
 - **pkg-config**
 
 ### Set up

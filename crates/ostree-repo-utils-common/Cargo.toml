@@ -15,10 +15,6 @@ gio = "0.20"
 anyhow = "1"
 base64 = "0.22"
 
-[dependencies.aws-sdk-kms]
-version = "1"
-optional = true
+aws-sdk-kms = { version = "1", default-features = false, features = ["default-https-client", "rt-tokio"], optional = true }
 
-[dependencies.aws-config]
-version = "1"
-optional = true
+aws-config = { version = "1", optional = true }
