@@ -20,7 +20,7 @@
 //! flag). This module only performs the raw read/write.
 
 use anyhow::Context as _;
-use glib::prelude::*;
+use ostree::glib::{self, prelude::ToVariant};
 
 /// GLib detached metadata key for ED25519 signatures, as used by `ostree sign`.
 const SIGN_ED25519_KEY: &str = "ostree.sign.ed25519";
@@ -102,7 +102,7 @@ pub fn write_ed25519_signatures(
 
 #[cfg(test)]
 mod tests {
-    use glib::prelude::*;
+    use ostree::glib::{self, prelude::ToVariant};
 
     /// Verify that our (aay) encoding round-trips correctly through GVariant
     /// serialization and deserialization, including the type string check.
