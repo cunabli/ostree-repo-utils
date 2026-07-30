@@ -11,7 +11,7 @@ kms = ["dep:aws-sdk-kms", "dep:aws-config"]
 [dependencies]
 ostree = "0.20"
 anyhow = "1"
-base64 = "0.22"
+base64 = "0.23"
 
 aws-sdk-kms = { version = "1", default-features = false, features = ["default-https-client", "rt-tokio"], optional = true }
 
